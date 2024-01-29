@@ -1,0 +1,10 @@
+node_modules
+dist
+configuration.json
+.vscode
+.vs
+*.js
+*.css
+*.map
+main.ts
+comments.txt
