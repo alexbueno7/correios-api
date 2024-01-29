@@ -34,7 +34,7 @@ const configuration: Configuration = {
     cartaoPostagem: "0000000000"
   }
 
-  app.get("/calc", async (req: Request, res: Response) => {
+  app.post("/calc", async (req: Request, res: Response) => {
     const product: IPackage = req.body;
     try {
         apiClient.initialize(configuration);
