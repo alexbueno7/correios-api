@@ -12,15 +12,20 @@
     "calulo preço",
     "calculo"
   ],
+  "main": "app.js",
+  "engines": {
+    "node": "18"
+  },
   "license": "MIT",
   "author": "Black Katz",
   "scripts": {
     "start:dev": "pnpm nodemon src/app.ts",
-    "start:prod": "npm nodemon dist/app.js",
-    "build": "tsc"
+    "start:prod": "pnpm nodemon dist/app.js",
+    "build": "tsup src"
   },
   "devDependencies": {
     "@types/express": "^4.17.21",
+    "@types/node": "^20.11.10",
     "@typescript-eslint/eslint-plugin": "^6.7.2",
     "@typescript-eslint/parser": "^6.7.2",
     "cross-env": "^7.0.3",
@@ -29,7 +34,9 @@
     "nodemon": "^3.0.3",
     "rimraf": "^5.0.5",
     "ts-node": "^10.9.2",
-    "typescript": "^5.2.2",
+    "tsup": "^8.0.1",
+    "tsx": "^4.7.0",
+    "typescript": "^5.3.3",
     "vite": "^4.4.9",
     "vite-plugin-eslint": "^1.8.1",
     "vitest": "^0.34.5"
