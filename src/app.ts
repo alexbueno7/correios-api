@@ -95,6 +95,18 @@ const configuration: Configuration = {
       res.send("Online");
     }
   );
+
+  app.post("/cep", async (req: Request, res: Response) => {
+    const cep = req.body;
+    try {
+      const dadosCep = await apiClient.Cep.search(cep);
+      return res.json(dadosCep);
+      } catch (error) {
+        // Handle the error, potentially log it or send a custom error message
+        console.error("Error in handling request:", error);
+        res.status(500).send("Internal Server Error");
+      }
+    });
   
   function maybeLog(value: unknown) {
   
