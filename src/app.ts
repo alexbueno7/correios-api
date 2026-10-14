@@ -26,12 +26,15 @@ const app: Express = express();
 app.use(express.json())
 const port = process.env.PORT || 3000;
 
+const required = ["CORREIOS_ID", "CORREIOS_CODIGO_ACESSO", "CORREIOS_CONTRATO", "CORREIOS_CARTAO_POSTAGEM"] as const;
+for (const k of required) if (!process.env[k]) throw new Error(`Missing env var ${k}`);
+
 const configuration: Configuration = {
-    ambiente:  Ambientes.Producao,
-    idCorreios: "00000000000000",
-    codigoAcesso:  "***REMOVED***",
-    contrato:  "0000000000",
-    cartaoPostagem: "0000000000"
+    ambiente: process.env.CORREIOS_AMBIENTE === "HOMOLOGACAO" ? Ambientes.Homologacao : Ambientes.Producao,
+    idCorreios: process.env.CORREIOS_ID!,
+    codigoAcesso: process.env.CORREIOS_CODIGO_ACESSO!,
+    contrato: process.env.CORREIOS_CONTRATO!,
+    cartaoPostagem: process.env.CORREIOS_CARTAO_POSTAGEM!
   }
 
   app.post("/calc", async (req: Request, res: Response) => {
