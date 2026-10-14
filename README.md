@@ -1,5 +1,7 @@
 # correios-api-client
 
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg) ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white) ![Node 18+](https://img.shields.io/badge/Node-18%2B-339933?logo=nodedotjs&logoColor=white)
+
 Typed TypeScript client for the official **Correios API** (`api.correios.com.br`) — the Brazilian postal service REST API available to contract holders through *Meu Correios*.
 
 Covers token, price quote, delivery time, CEP lookup and parcel tracking, with automatic token caching and renewal. Zero runtime dependencies beyond Node's native `fetch`.
